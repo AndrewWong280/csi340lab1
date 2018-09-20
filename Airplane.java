@@ -6,6 +6,17 @@ public class Airplane {
 	private String aircraftType;
 	private String tailNumber;
 	
+	public boolean matches(Airplane testPlane)
+	{
+		if (this.aircraftType != testPlane.getAircraftType())
+			return false;
+		if (this.getSeats().size() < testPlane.getSeats().size())
+			return false;
+		if (this.getNumVIPSeats() < testPlane.getNumVIPSeats())
+			return false;
+		return true;
+	}
+	
 	public ArrayList<Seat> getSeats() {
 		return seats;
 	}
@@ -24,4 +35,17 @@ public class Airplane {
 	public void setTailNumber(String tailNumber) {
 		this.tailNumber = tailNumber;
 	}
+	
+	public int getNumVIPSeats()
+	{
+		int numVIPSeats = 0;
+		for (Seat s: seats)
+		{
+			if (s.getType() == SeatType.VIP)
+				numVIPSeats++;
+		}
+		return numVIPSeats;
+	}
+	
 }
+
