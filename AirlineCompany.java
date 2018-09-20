@@ -1,5 +1,3 @@
-package csi340lab1;
-
 import java.util.ArrayList;
 
 public class AirlineCompany {
