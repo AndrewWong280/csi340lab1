@@ -8,6 +8,16 @@ public class Flight {
 	private String departureTime;
 	private Airplane aircraft;
 
+	public Flight(String flightNumber, String origin, String destination, String departureDate, String departureTime, Airplane aircraft)
+	{
+		this.flightNumber = flightNumber;
+		this.origin = origin;
+		this.destination = destination;
+		this.departureDate = departureDate;
+		this.departureTime = departureTime;
+		this.aircraft = aircraft;
+	}
+	
 	public String getFlightNumber() {
 		return flightNumber;
 	}

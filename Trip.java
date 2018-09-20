@@ -1,7 +1,7 @@
 
 public class Trip {
 	private Flight flight;
-	private String seatNumber;
+	private Seat seat;
 	
 	public Flight getFlight() {
 		return flight;
@@ -9,11 +9,18 @@ public class Trip {
 	public void setFlight(Flight flight) {
 		this.flight = flight;
 	}
-	public String getSeatNumber() {
-		return seatNumber;
+	public Seat getSeat() {
+		return seat;
 	}
-	public void setSeatNumber(String seatNumber) {
-		this.seatNumber = seatNumber;
+	public void setSeatNumber(Seat seat) 
+	{
+		for (Seat s: flight.getBookedSeats())
+		{
+			if (s.getSeatNumber() == seat.getSeatNumber())
+				System.out.println("That seat has already been booked.");
+				return;
+		}
+		this.seat = seat;
 	}
 	
 	
