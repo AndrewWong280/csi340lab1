@@ -45,4 +45,18 @@ public class Flight {
 		
 		return availableSeats;
 	}
+	
+	public ArrayList<Seat> getBookedSeats() {
+		ArrayList<Seat> bookedSeats = new ArrayList<Seat>();
+		
+		ArrayList<Seat> seats = aircraft.getSeats();
+		
+		for(int i = 0; i < seats.size(); i++) {
+			if(seats.get(i).isBooked()) {
+				bookedSeats.add(seats.get(i));
+			}
+		}
+		
+		return bookedSeats;
+	}
 }
