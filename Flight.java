@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 public class Flight {
 	private String flightNumber;
 	private String origin;
@@ -28,5 +30,19 @@ public class Flight {
 
 	public Airplane getAircraft() {
 		return aircraft;
+	}
+	
+	public ArrayList<Seat> getAvailableSeats() {
+		ArrayList<Seat> availableSeats = new ArrayList<Seat>;
+		
+		ArrayList<Seat> seats = aircraft.getSeats();
+		
+		for(int i = 0; i < seats.size(); i++) {
+			if(!seats.get(i).getBooked()) {
+				availableSeats.add(seats.get(i));
+			}
+		}
+		
+		return availableSeats;
 	}
 }
