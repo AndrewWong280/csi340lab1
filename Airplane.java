@@ -23,32 +23,38 @@ public class Airplane {
 	//must set businessRows, firstClassRows, and seatsPerRow 
 	//before calling setSeats()
 	public void setSeats() {
-		String seatLetter;
+		char seatChar;
 		int totalRows = firstClassRows + businessRows;
 
 		for (int i = 1; i <= totalRows; i++) {
 			for (int j = 1; j <= seatsPerRow; j++) {
 				Seat seat;
-				seatLetter = ""; //probably should be determined by separate function
-				if (j == 1)
-					seatLetter = "A";
-				else if (j == 2)
-					seatLetter = "B";
-				else if (j == 3)
-					seatLetter = "C";
-				else
-					seatLetter = "D";
-
+				
+				seatChar = returnSeatLetter(j);
+				
 				if (i < (totalRows - businessRows))
-					seat = new Seat(SeatType.VIP, String.valueOf(i) + seatLetter);
+					seat = new Seat(SeatType.VIP, String.valueOf(i) + seatChar);
 				else
-					seat = new Seat(SeatType.ECONOMY, String.valueOf(i) + seatLetter);
+					seat = new Seat(SeatType.ECONOMY, String.valueOf(i) + seatChar);
 
 				seats.add(seat);
 			}
 
 		}
 
+	}
+	
+	
+	//function would probably do better in another class,
+	//got it here in the meantime
+	//up to 6 seats per row as is, going to switch out with chars
+	public char returnSeatLetter(int index)
+	{
+		int charValue = 64; //start of alphabet
+		charValue += index;
+		
+		return (char) charValue;
+		
 	}
 	
 	public ArrayList<Seat> getSeats() {
