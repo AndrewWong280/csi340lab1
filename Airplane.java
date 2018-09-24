@@ -8,7 +8,8 @@ public class Airplane {
 	private int businessRows;
 	private int firstClassRows;
 	private int seatsPerRow;
-	
+	private AirlineCompany carrier;
+
 	public boolean matches(Airplane testPlane)
 	{
 		if (this.aircraftType != testPlane.getAircraftType())
@@ -98,6 +99,14 @@ public class Airplane {
 
 	public void setSeatsPerRow(int seatsPerRow) {
 		this.seatsPerRow = seatsPerRow;
+	}
+	
+	public AirlineCompany getCarrier() {
+		return carrier;
+	}
+
+	public void setCarrier(AirlineCompany carrier) {
+		this.carrier = carrier;
 	}
 	
 }
