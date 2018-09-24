@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 
 public class Airplane {
-	
+
 	private ArrayList<Seat> seats = new ArrayList<Seat>();
 	private String aircraftType;
 	private String tailNumber;
@@ -10,8 +10,7 @@ public class Airplane {
 	private int seatsPerRow;
 	private AirlineCompany carrier;
 
-	public boolean matches(Airplane testPlane)
-	{
+	public boolean matches(Airplane testPlane) {
 		if (this.aircraftType != testPlane.getAircraftType())
 			return false;
 		if (this.getSeats().size() < testPlane.getSeats().size())
@@ -20,23 +19,29 @@ public class Airplane {
 			return false;
 		return true;
 	}
-	
-	//must set businessRows, firstClassRows, and seatsPerRow 
-	//before calling setSeats()
+
+	// must set businessRows, firstClassRows, and seatsPerRow
+	// before calling setSeats()
 	public void setSeats() {
+		SeatType section;
 		char seatChar;
 		int totalRows = firstClassRows + businessRows;
 
 		for (int i = 1; i <= totalRows; i++) {
 			for (int j = 1; j <= seatsPerRow; j++) {
 				Seat seat;
-				
+				String location;
+
 				seatChar = returnSeatLetter(j);
-				
-				if (i < (totalRows - businessRows))
-					seat = new Seat(SeatType.VIP, String.valueOf(i) + seatChar);
+
+				if (i <= (totalRows - businessRows))
+					section = SeatType.VIP;
 				else
-					seat = new Seat(SeatType.ECONOMY, String.valueOf(i) + seatChar);
+					section = SeatType.ECONOMY;
+
+				seat = new Seat(section, String.valueOf(i) + seatChar);
+				location = seat.getInfo(seatsPerRow, j);
+				seat.setSeatLocation(location);
 
 				seats.add(seat);
 			}
@@ -44,51 +49,48 @@ public class Airplane {
 		}
 
 	}
-	
-	
-	//function would probably do better in another class,
-	//got it here in the meantime
-	//up to 6 seats per row as is, going to switch out with chars
-	public char returnSeatLetter(int index)
-	{
-		int charValue = 64; //start of alphabet
+
+	public char returnSeatLetter(int index) {
+		int charValue = 64; 
 		charValue += index;
-		
+
 		return (char) charValue;
-		
+
 	}
-	
+
 	public ArrayList<Seat> getSeats() {
 		return seats;
 	}
+
 	public void setSeats(ArrayList<Seat> seats) {
 		this.seats = seats;
 	}
+
 	public String getAircraftType() {
 		return aircraftType;
 	}
+
 	public void setAircraftType(String aircraftType) {
 		this.aircraftType = aircraftType;
 	}
+
 	public String getTailNumber() {
 		return tailNumber;
 	}
+
 	public void setTailNumber(String tailNumber) {
 		this.tailNumber = tailNumber;
 	}
-	
-	public int getNumVIPSeats()
-	{
+
+	public int getNumVIPSeats() {
 		int numVIPSeats = 0;
-		for (Seat s: seats)
-		{
+		for (Seat s : seats) {
 			if (s.getType() == SeatType.VIP)
 				numVIPSeats++;
 		}
 		return numVIPSeats;
 	}
-	
-	
+
 	public void setBusinessRows(int businessRows) {
 		this.businessRows = businessRows;
 	}
@@ -100,7 +102,7 @@ public class Airplane {
 	public void setSeatsPerRow(int seatsPerRow) {
 		this.seatsPerRow = seatsPerRow;
 	}
-	
+
 	public AirlineCompany getCarrier() {
 		return carrier;
 	}
@@ -108,6 +110,5 @@ public class Airplane {
 	public void setCarrier(AirlineCompany carrier) {
 		this.carrier = carrier;
 	}
-	
-}
 
+}
