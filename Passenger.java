@@ -4,6 +4,11 @@ import java.util.ArrayList;
 public class Passenger {
 	private ArrayList<Trip> trips = new ArrayList<Trip>();
 	private String name;
+	
+	public Passenger(String name)
+	{
+		this.name = name;
+	}
 
 	public Trip getTrip(int index) {
 		return trips.get(index);
@@ -19,6 +24,11 @@ public class Passenger {
 
 	public void setTrips(ArrayList<Trip> trips) {
 		this.trips = trips;
+	}
+	
+	public void addTrip(Trip trip)
+	{
+		this.trips.add(trip);
 	}
 
 	public String getName() {
@@ -36,7 +46,7 @@ public class Passenger {
 			System.out.print("To          : " + trips.get(i).getFlight().getDestination() + "\n");
 			System.out.print("Date        : " + trips.get(i).getFlight().getDepartureDate() + "\n");
 			System.out.print("Time        : " + trips.get(i).getFlight().getDepartureTime() + "\n");
-			System.out.print("Seat Number : " + trips.get(i).getSeatNumber() + "\n");
+			System.out.print("Seat Number : " + trips.get(i).getSeat().getSeatNumber() + "\n");
 			System.out.print("Carrier     : " + trips.get(i).getFlight().getAircraft().getCarrier() + "\n");
 		}
 	}
