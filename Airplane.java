@@ -19,6 +19,13 @@ public class Airplane {
 			return false;
 		return true;
 	}
+	
+	public void setSeatNumbers(int businessRows, int firstClassRows, int seatsPerRow)
+	{
+		this.businessRows = businessRows;
+		this.firstClassRows = firstClassRows;
+		this.seatsPerRow = seatsPerRow;
+	}
 
 	// must set businessRows, firstClassRows, and seatsPerRow
 	// before calling setSeats()
