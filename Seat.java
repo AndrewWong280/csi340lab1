@@ -2,8 +2,18 @@
 public class Seat {
 	private SeatType type;
 	private String seatNumber;
+	private String seatLocation;
+
+	public String getSeatLocation() {
+		return seatLocation;
+	}
+
+	public void setSeatLocation(String seatLocation) {
+		this.seatLocation = seatLocation;
+	}
+
 	private boolean booked;
-	
+
 	public Seat(SeatType type, String seatNumber) {
 		this.type = type;
 		this.seatNumber = seatNumber;
@@ -32,4 +42,18 @@ public class Seat {
 	public SeatType getType() {
 		return type;
 	}
+
+	public String getInfo(int seatsPerRow, int j) {
+		String location;
+
+		if (j == 1)
+			location = "Aisle";
+		else if (j == seatsPerRow)
+			location = "Window";
+		else
+			location = "Middle";
+
+		return location;
+	}
+
 }
