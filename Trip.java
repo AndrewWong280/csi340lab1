@@ -3,6 +3,32 @@ public class Trip {
 	private Flight flight;
 	private Seat seat;
 	
+	public Trip(Flight flight) {
+		this.flight = flight;
+
+	}
+	
+	public void setSeat(String preferredSeat, SeatType type)
+	{
+		for (Seat seat : flight.getAvailableSeats())
+		{
+			if (seat.getSeatNumber().equals(preferredSeat)) 
+			{
+				this.seat = seat; //give them preferred seat
+			}
+		}
+		//preferred seat not available, give first available seat of preferred type
+		for (Seat seat : flight.getAvailableSeats())
+		{
+			if (seat.getType() == type)
+			{
+				this.seat = seat;
+				seat.setBooked(true);
+			}
+		}
+		
+	}
+	
 	public Flight getFlight() {
 		return flight;
 	}
