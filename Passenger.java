@@ -65,7 +65,7 @@ public class Passenger {
 			System.out.print("Date        : " + trips.get(i).getFlight().getDepartureDate() + "\n");
 			System.out.print("Time        : " + trips.get(i).getFlight().getDepartureTime() + "\n");
 			System.out.print("Seat Number : " + trips.get(i).getSeat().getSeatNumber() + "\n");
-			System.out.print("Carrier     : " + trips.get(i).getFlight().getAircraft().getCarrier().getName() + "\n");
+			System.out.print("Carrier     : " + trips.get(i).getFlight().getAircraft().getCarrier().getName() + "\n\n");
 		}
 	}
 }

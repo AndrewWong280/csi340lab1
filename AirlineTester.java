@@ -32,12 +32,24 @@ public class AirlineTester
         plane1.setSeatNumbers(20, 10, 3);
         plane1.setSeats(); 
         
+        Airplane plane2 = new Airplane();
+        plane2.setAircraftType("737");
+        plane2.setTailNumber("N56JB");
+        plane2.setCarrier(jetBlue);
+        plane2.setSeatNumbers(40, 20, 6);
+        plane2.setSeats(); 
+        
         Flight flight1 = new Flight("1044", "KBTV", "KBGR", "9/26/18", "15:30", plane1);
+        Flight flight2 = new Flight ("1045", "KMMU", "KEWR", "9/27/18", "12:00", plane2);
         
         Passenger passenger1 = new Passenger("Joe Bodega");
         Trip trip1 = new Trip(flight1);
         trip1.setSeat("2A", SeatType.VIP);
+        
+        Trip trip2 = new Trip(flight2);
+        trip2.setSeat("3C", SeatType.ECONOMY);
         passenger1.addTrip(trip1);
+        passenger1.addTrip(trip2);
         
         passenger1.printItenerary();
         
