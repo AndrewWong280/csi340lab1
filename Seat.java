@@ -3,6 +3,7 @@ public class Seat {
 	private SeatType type;
 	private String seatNumber;
 	private String seatLocation;
+	private boolean booked;
 
 	public String getSeatLocation() {
 		return seatLocation;
@@ -11,8 +12,6 @@ public class Seat {
 	public void setSeatLocation(String seatLocation) {
 		this.seatLocation = seatLocation;
 	}
-
-	private boolean booked;
 
 	public Seat(SeatType type, String seatNumber) {
 		this.type = type;
