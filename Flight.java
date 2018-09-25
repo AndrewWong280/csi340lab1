@@ -30,6 +30,30 @@ public class Flight {
 		return destination;
 	}
 
+	public void setFlightNumber(String flightNumber) {
+		this.flightNumber = flightNumber;
+	}
+
+	public void setOrigin(String origin) {
+		this.origin = origin;
+	}
+
+	public void setDestination(String destination) {
+		this.destination = destination;
+	}
+
+	public void setDepartureDate(String departureDate) {
+		this.departureDate = departureDate;
+	}
+
+	public void setDepartureTime(String departureTime) {
+		this.departureTime = departureTime;
+	}
+
+	public void setAircraft(Airplane aircraft) {
+		this.aircraft = aircraft;
+	}
+
 	public String getDepartureDate() {
 		return departureDate;
 	}
